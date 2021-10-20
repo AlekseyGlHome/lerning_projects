@@ -1,0 +1,27 @@
+Ресурс	    GET	                        POST	                PUT	                        DELETE
+/todolist	Получить список всех дел	Создание нового дела	Метод не разрешён (405)	    Удаление списка дел
+/todolist/1	Получить дело с id 1	    Метод не разрешён (405)	Обновление дела с id 1      Удаление дела с id 1
+
+
+Возвращаемые данные от сервера
+
+Получить список всех дел    GET(localhost:8080/todolist)
+Возвращаемое значение масим объектов ToDo [{"id":0,"name":"111","description":"1111"},{"id":1,"name":"Дело 1","description":"Выполнить что-то"}]
+
+Получить дело с id 1        GET(localhost:8080/todolist/1)
+Возвращаемое значение объект ToDo {"id":1,"name":"Дело 1","description":"Выполнить что-то"}
+
+Создание нового дела        POST(localhost:8080/todolist)
+                            (Content-Type: application/json
+                            {"name":"Наименование дела","description":"Описание дела"})
+Возвращаемое значение созданного объекта ToDo {"id":2,"name":"Наименование дела","description":"Описание дела"}
+
+Обновление дела             PUT(localhost:8080/todolist/2)
+                            (Content-Type: application/json
+                            {"name":"Новое наименование дела","description":"Новое описание дела"})
+Возвращаемое значение измененный объект ToDo {"id":2,"name":"Новое наименование дела","description":"Новое описание дела"}
+
+Удаление списка дел         DELETE(localhost:8080/todolist)
+
+
+Удаление дел по id 2         DELETE(localhost:8080/todolist/2)

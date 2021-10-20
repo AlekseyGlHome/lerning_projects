@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<div class="container">
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container">
+        <form class="form-horizontal" th:action="@{/add}"
+              th:object="${todo}"  method="post">
+            <div class="form-group">
+                <p>Наименование</p>
+                <input class="form-control" type="text" th:field="*{name}" maxlength="100"/>
+                <p>Описание</p>
+                <input class="form-control" type="text" th:field="*{description}" maxlength="255"/>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Записать</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

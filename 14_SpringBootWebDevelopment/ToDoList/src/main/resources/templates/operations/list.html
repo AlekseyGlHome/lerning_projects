@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="todo">
+    <table class="table table-bordered table-hover horizontal-align">
+        <thead>
+        <tr>
+            <th style="width: 60%">Заголовок</th>
+            <th style="width: 5%">Изменить</th>
+            <th style="width: 5%">Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="toDo : ${list}">
+            <td>
+                <p class="h4" th:text="${toDo.name}"></p>
+                <p th:text="${toDo.description}"></p>
+            </td>
+
+            <td style="text-align: center"><a th:href="@{'/{id}'(id=${toDo.id})}"><i class="fa fa-edit" style="font-size:20px"></i></a></td>
+            <td style="text-align: center"><a th:href="@{'/delete/{id}'(id=${toDo.id})}"><i class="fa fa-trash" style="font-size:20px"></i></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>

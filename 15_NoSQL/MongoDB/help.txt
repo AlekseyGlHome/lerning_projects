@@ -1,0 +1,34 @@
+Запуск контейнера с MongoDB
+Наберите (в одну строчку):
+
+docker run --rm --name skill-mongo -p 127.0.0.1:27017:27017/tcp -d scalar4eg/skill-mongo-with-hacker
+
+
+(
+
+ это обычный контейнер MongoDB с установленным шеллом Mongo-Hacker
+
+ https://github.com/TylerBrock/mongo-hacker
+
+)
+
+Чтобы подключиться используя клиент командной строки, наберите команду (в одну строчку):
+
+docker exec -it skill-mongo mongo
+
+
+Примеры кода
+JAVA.
+
+
+
+Подключение к MongoDB из кода программ
+Java
+
+MongoClient mongoClient = new MongoClient( "127.0.0.1" , 27017 );
+
+
+Для остановки контейнера с MongoDB
+Наберите в терминале (в одну строчку):
+
+docker kill skill-mongo
